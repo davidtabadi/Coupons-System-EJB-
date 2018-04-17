@@ -1,0 +1,8 @@
+.infoMessage {
+	color: blue;
+}
+
+.errorMessage {
+	color: red;
+	font-weight: bold;
+}

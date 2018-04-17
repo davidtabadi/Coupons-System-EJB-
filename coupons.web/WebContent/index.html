@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-resource.min.js"></script>
+<script type="text/javascript" src="js/coupons.js"></script>
+<link rel="stylesheet" href="css/coupons.css">
+<title>Coupons Web Application</title>
+</head>
+<body ng-app="CouponsApp" ng-controller="CouponsController as coupons">
+<h1>Coupons Web Application</h1>
+<h2>Admin Operations</h2>
+<ul>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/admin/login/admin/admin', 'bad login', 'successfully logged in as administrator')">login</a>
+	<li><a href='api/coupons/admin/income'>view all income</a>
+	<li><a href='api/coupons/admin/income/?byCompId=1'>view income for company #1</a>
+	<li><a href='api/coupons/admin/income/?byCompId=2'>view income for company #2</a>
+	<li><a href='api/coupons/admin/income/?byCustId=1'>view income for customer #1</a>
+	<li><a href='api/coupons/admin/income/?byCustId=2'>view income for customer #2</a>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/admin/logout', 'error while logging out')">logout</a>
+</ul>
+<h2>Company Operations</h2>
+<ul>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/company/login/comp1/comp1', 'bad login', 'successfully logged in as company #1')">login as company #1</a>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/company/login/comp2/comp2', 'bad login', 'successfully logged in as company #2')">login as company #2</a>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/company/coupon/create/90.99', 'could not create coupon')">create a new coupon</a>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/company/coupon/update/123/100.0', 'could not update coupon')">update price of coupon #123</a>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/company/coupon/update/987/100.0', 'could not update coupon')">update price of coupon #987</a>
+	<li><a href='api/coupons/company/income'>view income</a>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/company/logout', 'error while logging out')">logout</a>
+</ul>
+<h2>Customer Operations</h2>
+<ul>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/customer/login/customer1/customer1', 'bad login', 'successfully logged in as customer #1')">login as customer #1</a>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/customer/login/customer2/customer2', 'bad login', 'successfully logged in as customer #2')">login as customer #2</a>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/customer/coupon/purchase/32/30.33', 'could not purchase coupon')">purchase coupon #32 for $30.33</a>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/customer/coupon/purchase/56/99.99', 'could not purchase coupon')">purchase coupon #56 for $99.99</a>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/customer/coupon/purchase/412/130.0', 'could not purchase coupon')">purchase coupon #412 for $130.0</a>
+	<li><a href='api/coupons/customer/income'>view income</a>
+	<li><a href="#" ng-click="coupons.invokeUrl('api/coupons/customer/logout', 'error while logging out')">logout</a>
+</ul>
+<div class="infoMessage" ng-bind="coupons.infoMessage"></div>
+<div class="errorMessage" ng-bind="coupons.errorMessage"></div>
+
+</body>
+</html>
